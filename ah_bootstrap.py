@@ -33,13 +33,18 @@ latest version of this module.
 
 import contextlib
 import errno
-import imp
 import io
 import locale
 import os
 import re
 import subprocess as sp
 import sys
+
+# imp has been deprecaded in python 3.12
+try:
+    import imp
+except ImportError:
+    import importlib as imp
 
 try:
     from ConfigParser import ConfigParser, RawConfigParser
